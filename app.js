@@ -1,16 +1,22 @@
-const linksList = document.querySelectorAll('a')
+const itemsList = document.querySelectorAll('section, article, h1')
 
-const confirmRedirect = function (e) {
-    const newUrl = this.getAttribute('href')
-    const userDecision = confirm('Are you sure? -> ' + newUrl)
-
-    if (!userDecision) {
-        e.preventDefault()
+const showTagName = function (e) {
+    console.log(this.tagName);
+    if (this.tagName === 'ARTICLE') {
+        // e.stopImmediatePropagation()
+        e.stopPropagation()
     }
 }
 
-linksList.forEach(function (item) {
-    item.addEventListener('click', confirmRedirect)
+const showText = function () {
+    console.log('click on article!');
+}
+
+itemsList.forEach(function (item) {
+    item.addEventListener('click', showTagName)
+    if (item.tagName === 'ARTICLE') {
+        item.addEventListener('click', showText)
+    }
 })
 
 
