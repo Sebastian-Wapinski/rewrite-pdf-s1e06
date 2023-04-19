@@ -1,16 +1,18 @@
-const counterEl = document.querySelector('.counter')
+const btnEl = document.querySelector('button')
+const sectionEl = document.querySelector('section')
 
-const incrementCounter = function () {
-    let value = parseInt(counterEl.innerText)
+if (btnEl&&sectionEl) {
+    btnEl.addEventListener('click', function () {
+        console.log('button was clicked');
+    })
 
-    counterEl.innerText = ++value;
+    sectionEl.addEventListener('click', function () {
+        console.log('section was clicked too!');
+    })
 
-    if (value > 3) {
-        counterEl.removeEventListener(
-            'click', incrementCounter
-        )
-    }
+
 }
 
-counterEl.addEventListener('click', incrementCounter)
+
+
 
