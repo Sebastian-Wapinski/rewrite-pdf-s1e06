@@ -1,13 +1,13 @@
-const btnList = document.querySelectorAll('button')
+const itemsList = document.querySelectorAll(
+    'section, article, h1'
+)
 
-const changeText = function() {
-    this.innerText = 'clicked';
+const showTagName = function () {
+    console.log(this.tagName.toLowerCase());
 }
 
-btnList.forEach(function(btnEl) {
-    btnEl.addEventListener('click', changeText)
+itemsList.forEach(function (item) {
+    item.addEventListener('click', showTagName, false)
 })
-
-
 
 
