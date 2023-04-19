@@ -1,14 +1,16 @@
 const linksList = document.querySelectorAll('a')
 
-const getHref = function (event) {
-    event.preventDefault();
+const confirmRedirect = function (e) {
+    const newUrl = this.getAttribute('href')
+    const userDecision = confirm('Are you sure? -> ' + newUrl)
 
-    const href = this.getAttribute('href')
-    console.log(href);
+    if (!userDecision) {
+        e.preventDefault()
+    }
 }
 
 linksList.forEach(function (item) {
-    item.addEventListener('click', getHref)
+    item.addEventListener('click', confirmRedirect)
 })
 
 
