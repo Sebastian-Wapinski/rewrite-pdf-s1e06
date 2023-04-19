@@ -1,10 +1,16 @@
-const userEl = document.querySelector('[name="user"]')
+const counterEl = document.querySelector('.counter')
 
-const showCurrentUserId = function () {
-    console.log(userEl.value);
+const incrementCounter = function () {
+    let value = parseInt(counterEl.innerText)
+
+    counterEl.innerText = ++value;
+
+    if (value > 3) {
+        counterEl.removeEventListener(
+            'click', incrementCounter
+        )
+    }
 }
 
-if (userEl) {
-    userEl.addEventListener('change', showCurrentUserId,)
-}
+counterEl.addEventListener('click', incrementCounter)
 
