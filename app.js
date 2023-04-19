@@ -1,7 +1,13 @@
 const btnEl = document.querySelector('.btn')
+const textEl = document.querySelector('.text')
 
-const handleClick = function () {
-    console.log('button was clicked');
+const onEnter = function () {
+    textEl.textContent = 'enter...'
 }
 
-btnEl.addEventListener('click', handleClick)
+const onLeave = function () {
+    textEl.textContent = 'leave...'
+}
+
+btnEl.addEventListener('mouseenter', onEnter)
+btnEl.addEventListener('mouseleave', onLeave)
