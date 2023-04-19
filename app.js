@@ -1,8 +1,10 @@
-const emailEl = document.querySelector('.email')
+const userEl = document.querySelector('[name="user"]')
 
-const getValue = function () {
-    console.log(emailEl.value);
+const showCurrentUserId = function () {
+    console.log(userEl.value);
 }
 
-emailEl.addEventListener('keyup', getValue)
+if (userEl) {
+    userEl.addEventListener('change', showCurrentUserId,)
+}
 
