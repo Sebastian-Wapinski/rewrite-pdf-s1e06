@@ -7,7 +7,7 @@ const showTagName = function () {
 }
 
 itemsList.forEach(function (item) {
-    item.addEventListener('click', showTagName, false)
+    item.addEventListener('click', showTagName, true)
 })
 
 
