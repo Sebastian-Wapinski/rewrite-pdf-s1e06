@@ -1,18 +1,20 @@
-const btnElement = document.querySelector('button')
-const pElement = document.querySelector('p')
-const handleRender = function (e) {
-    this.innerText = e.detail;
+const itemsList = document.querySelectorAll('section, article, h1')
+
+const handleOutput = function (e) {
+    console.log(this.tagName, e.type);
 }
 
-const handleClick = function() {
-    const renderEvent = new CustomEvent (
-        'render', {detail: 'new content!'}
-    )
-    pElement.dispatchEvent(renderEvent)
-}
-
-btnElement.addEventListener('click', handleClick)
-pElement.addEventListener('render', handleRender)
-
+itemsList.forEach(function (item) {
+    item.addEventListener('output',handleOutput)
+    if (item.tagName === 'H1') {
+        const outputEvent = new CustomEvent(
+            'output', {
+                detail: item.tagName,
+                bubbles: false,
+            }
+        )
+        item.dispatchEvent(outputEvent)
+    }
+})
 
 
