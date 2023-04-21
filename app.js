@@ -5,7 +5,11 @@ const handleClick = function (e) {
 }
 
 btnElement.addEventListener('click', handleClick)
-btnElement.click()
+
+
+const eventClick = new Event('click')
+
+btnElement.dispatchEvent(eventClick)
 
 
 
