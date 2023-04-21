@@ -7,7 +7,7 @@ const handleClick = function (e) {
 btnElement.addEventListener('click', handleClick)
 
 
-const eventClick = new Event('click', {
+const eventClick = new MouseEvent('click', {
     'bubbles': true,
     'cancelable': true,
 })
