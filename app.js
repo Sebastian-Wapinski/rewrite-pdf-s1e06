@@ -1,18 +1,18 @@
 const btnElement = document.querySelector('button')
-const handleClick = function (e) {
-    console.log('button was clicked');
-    console.log(e.isTrusted);
+const pElement = document.querySelector('p')
+const handleRender = function (e) {
+    this.innerText = e.detail;
+}
+
+const handleClick = function() {
+    const renderEvent = new CustomEvent (
+        'render', {detail: 'new content!'}
+    )
+    pElement.dispatchEvent(renderEvent)
 }
 
 btnElement.addEventListener('click', handleClick)
-
-
-const eventClick = new MouseEvent('click', {
-    'bubbles': true,
-    'cancelable': true,
-})
-
-btnElement.dispatchEvent(eventClick)
+pElement.addEventListener('render', handleRender)
 
 
 
