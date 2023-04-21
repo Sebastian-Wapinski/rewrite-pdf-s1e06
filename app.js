@@ -1,17 +1,11 @@
-const itemsList = document.querySelectorAll(
-    'section, article, h1'
-)
-const showInfo = function (e) {
-    let text = e.currentTarget.tagName + ': '
-    text += (e.currentTarget === this) ? 'Y' : 'N'
-
-    console.log(text);
+const btnElement = document.querySelector('button')
+const handleClick = function (e) {
+    console.log('button was clicked');
+    console.log(e.isTrusted);
 }
 
-itemsList.forEach(function (item) {
-    item.addEventListener('click', showInfo)
-})
-
+btnElement.addEventListener('click', handleClick)
+btnElement.click()
 
 
 
